@@ -1,0 +1,81 @@
+console.log('one');
+setTimeout(function() {
+  console.log('two');
+}, 0);
+Promise.resolve().then(function() {
+  console.log('three');
+})
+console.log('four');
+
+one
+four
+two
+three
+
+==================================
+
+const module = {
+  x: 42,
+  getX: function() {
+    return this.x;
+  }
+};
+
+const getX = module.getX;
+log(getX)//func def
+console.log(getX());
+
+undef
+
+
+======================================
+
+for (let i = 0; i < 4; i++) {
+  temp(i)
+}
+//i=4
+function temp(i){
+    setTimeout(() => console.log(i);
+}, 0)
+    
+
+4 4 4 4
+
+
+=======================================
+
+const arr = [1,2,3,4]
+
+const t = arr.filter(el => el%2 != 0)
+
+const t = arr.filter(el => el > 2)
+
+function myFilter(arr, callback){
+    let t = [];
+    arr.forEach(el => {
+        let v = callback(el);
+        if(v) t.push(el);
+    })
+    return t;
+}
+
+function odd(el){
+    return (el % 2 != 0);
+}
+
+var t = myFilter(arr, odd)
+
+=======================================
+
+const t = "aabbcccdddcc"
+var tArr = t.split(); // tArr = [a,a,b ,b, c, c,c, d,d,d,c,c]
+let max = 1;
+let finalMax = 1;
+let ch ='';
+
+for(let i=0; i<tArr.length; i++){
+    if(i < tArr.length - 1){
+        if(tArr[i] === tArr[i+1]){ max++; finalMax = finalMax <= max? max : finalMax}
+        else max=1;
+    }
+}
