@@ -5,10 +5,10 @@ const arr = [
   [9, 10],
 ];
 
-console.log("Array.flat", arr.flat(2));
+console.log("Array.flat", arr.flat(2)); //[12345678910]
 //depth 2
 
-console.log("Concat", [].concat(...arr));
+console.log("Concat", [].concat(...arr)); //[123456[78]910]
 
 function customFlat(arr, depth = 1) {
   let result = [];
