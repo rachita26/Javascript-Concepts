@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <span id="inputSpan"></span>
+
+    <script>
+      const span = document.getElementById("inputSpan");
+      let ct = 0;
+      const throttle = (cb, delay = 1000) => {
+        let flag = false;
+        return (...args) => {
+          if (flag) return;
+          flag = true;
+          setTimeout(() => {
+            cb(...args);
+            flag = false;
+          }, delay);
+        };
+      };
+      const updateText = throttle(() => {
+        span.textContent = ct++;
+      });
+      document.addEventListener("mousemove", () => updateText());
+    </script>
+  </body>
+</html>
